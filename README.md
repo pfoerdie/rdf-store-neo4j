@@ -1,1 +1,1 @@
-# rdf-store-neo4j
+# @pfoerdie/rdf-store-neo4j
