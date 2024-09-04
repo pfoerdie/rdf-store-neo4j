@@ -1,7 +1,16 @@
-import { Stream, Quad } from '@rdfjs/types'
+import { Stream, Quad, NamedNode } from '@rdfjs/types'
 import EventEmitter from 'node:events'
+import { Readable } from 'node:stream'
 
-export default class QuadStream extends EventEmitter implements Stream {
+export type StreamEvents = {
+  'readable': []
+  'end': []
+  'error': [Error]
+  'data': [Quad]
+  'prefix': [string, NamedNode]
+}
+
+export default class QuadStream extends EventEmitter<StreamEvents> implements Stream {
 
   push(quad: Quad) {
 
